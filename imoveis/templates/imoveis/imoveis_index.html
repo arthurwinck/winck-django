@@ -1,0 +1,115 @@
+{% extends 'base_layout.html'%}
+{% block content %}
+<section class="banner-imovel hero banner">
+		<div class="search dale block">
+			<form class="form-search-imovel" action="{% url 'imoveis' %}" method="GET">
+				<div class="margin2x start">
+						<h2>Pesquise aqui:</h2>
+						{{form.Tipo}}
+						{{form.Search}}
+						<div class="search--items__grid start search--items">
+							<div class="search--item margin">
+								<label for="qu">Quartos</label>
+								{{form.Quartos}}
+							</div>
+							<div class="search--item margin">
+								<label for="qu">Suítes</label>
+								{{form.Suites}}
+							</div>
+							<div class="search--item margin">
+								<label for="qu">Banheiros</label>
+								{{form.Banheiros}}
+							</div>
+							<div class="search--item margin">
+								<label for="qu">Vagas</label>
+								{{form.Vagas}}
+							</div>
+						</div>
+						<div class="center">
+							<button class="btn margin2x" type="submit"><h3>Procurar</h3></button>
+						</div>
+					</div>		
+			</form>	
+		</div>
+	</section>
+	<div class="background">
+	<section class="background background-imovel">
+		<div class="between-alt"></div>
+		<section class="grid-imovel container">
+			{% if page_obj.paginator.page_range == 0 %}				
+				<h3 class="dale e404">Me parece que não existem posts no blog nesse momento, talvez mais tarde? :(</h3>
+				<div class="flex-always justify-content-center"><i class="far fa-frown-open fa-5x"></i></div>
+				{% else %}
+				{% for imoveis in page_obj %}
+				<a class="" href="{% url 'details_imoveis' slug=imoveis.slug %}">
+					<div class="cell-imovel a-imovel">
+						<section class="">
+							<ul class=cell-list>
+							<li class="li-100"><div class='img-imovel' style="background-image: url({{imoveis.thumb.url}})"></li>
+							<section class="flex-always-left">
+								<div class="w70A">
+									<li><h5>{{imoveis.nome}}</h5></li>
+									<li><p>{{imoveis.tipo}}</p></li>
+									<li><p>{{imoveis.cidade}} - {{imoveis.bairro}}</p></li>
+								</div>
+								<div class="w30A">
+									<li><small><i class="fas fa-bed"></i>: {{imoveis.quartos}}</small></li>
+									<li><small><i class="fas fa-shower"></i>: {{imoveis.banheiros}}</small></li>
+									<li><small><i class="fas fa-car"></i>: {{imoveis.vagas}}</small></li>
+								</div>
+							</section>
+							</ul>
+					</div>
+					</a>
+				{% endfor%}
+				{% endif %}		
+		</section>
+		<div class="pagination marginH flex-always justify-content-center">
+			<span class="step-links block">
+				{% if page_obj.has_other_pages %}
+					<ul class="pages">
+					{% if page_obj.has_previous %}
+						<li><a href="?page={{ page_obj.previous_page_number }}"><p><i class="gg-arrow-left-o"></i></p></a></li>
+					{% else %}
+						<li class="disable"><span><p><i class="gg-arrow-left-o"></i></p></span></li>
+					{% endif %}
+					{% for i in page_obj.paginator.page_range %}
+						{% if page_obj.number == i %}
+							<li class="active"><span><p class="dale">{{ i }}</p><span class="sr-only">(current)</span></span></li>
+						{% else %}
+							<li><a href="?page={{ i }}"><p>{{ i }}</p></a></li>
+						{% endif %}
+					{% endfor %}
+					{% if page_obj.has_next %}
+						<li><a href="?page={{ page_obj.next_page_number }}"><p><i class="gg-arrow-right-o"></i></p></a></li>
+					{% else %}
+						<li class="disable"><span><p><i class="gg-arrow-right-o"></i></p></span></li>	
+					{% endif %}
+					</ul>
+				{% endif %}
+			</span>
+			<script>
+				//Talvez mudar o autocomplete para ignorar pontos? é possivel?
+				$( function() {
+					$( "#search" ).autocomplete({
+					source: '{{ imoveisJson|safe }}',
+					minLength: 2
+					});
+				} );
+				</script>
+				<script>
+					if ('{{getDic.Tipo}}' === ""){
+						document.getElementById('search-select').value = 'Todos'
+					}else{
+						document.getElementById('search-select').value = '{{getDic.Tipo}}'
+					}
+					
+					document.getElementById('search').value = '{{getDic.Search}}' 
+					document.getElementById('id_Quartos').value = parseInt('{{getDic.Quartos}}') 
+					document.getElementById('id_Suites').value = parseInt('{{getDic.Suites}}')
+					document.getElementById('id_Banheiros').value = parseInt('{{getDic.Banheiros}}')
+					document.getElementById('id_Vagas').value = parseInt('{{getDic.Vagas}}')
+				</script>
+		</div>
+	</section>
+{% endblock%}

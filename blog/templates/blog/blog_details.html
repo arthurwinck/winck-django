@@ -1,0 +1,16 @@
+{% extends 'base_layout.html'%}
+
+{% block content %}
+<div class="wrapper container hero block">
+<div class="itens-desc-blog dale ">
+    <img class="pic-detail-blog" src="{{ posts.thumb.url }}" alt="thumbnail">
+    <h2 class="padding">{{posts.title}}</h2>
+</div>
+<div class="itens-desc-full dale margin padding paddingH">
+    <div class="marginH">
+        <h4>{{posts.desc}}</h4>
+        <p>{{posts.body|safe }}</p>
+    </div>
+</div>
+
+{% endblock%}

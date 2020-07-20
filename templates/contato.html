@@ -1,0 +1,60 @@
+{% extends 'base_layout.html'%}
+{%block content%}
+{% load static %}
+{% if contatoDic.Nome != '' %}
+<h4 class="padding success-contato">Muito Obrigado {{contatoDic.Nome}}, entraremos em contato em breve!</h4>
+{% endif %}
+<section class="banner-contato hero banner">
+<div class="container">
+    <div class="enchimento-banner"></div>
+    <h2>Diga-nos no que está pensando!</h2>
+    <p>Gostaria de trabalhar na Winck, pensou em algum comentário pertinente ou quer encomendar um imóvel para receber ofertas especiais? Fale com a gente!</p>
+  </div>
+  </section>
+
+<section class="background">
+    <section class="container col hero block">
+      <h1>Fale Conosco:</h1>
+      <div class="flex">
+        <div class="hero w50 info-side block">
+          <div class="info-side-div flex-always-start margin start">
+            <i class="fab fa-whatsapp fa-3x" aria-hidden="true"></i>
+            <h4 class="info-side-text">Telefone & Whatsapp: (54)99101-3403</h4>
+          </div>
+          <div class="info-side-div flex-always-start margin start">
+            <a href="#" class="disable"><i class="fas fa-envelope-open-text fa-3x"></i></a>
+            <h4 class="info-side-text"> Email: winck@winckimoveis.com.br</h4>
+          </div>
+          <div class="info-side-div flex-always-start margin start">
+            <i class="fab fa-facebook-square fa-3x" aria-hidden="true"></i>
+            <h4 class="info-side-text"> Facebook: Winck.Imoveis</h4>
+          </div>
+         <div class="info-side-div flex-always-start margin start">
+            <i class="fab fa-instagram-square fa-3x" id=insta></i>
+            <h4 class="info-side-text"> Instagram: winckimoveis</h4>
+        </div>
+        <div class="info-side-div flex-always-start margin start">
+          <i class="fab fa-linkedin fa-3x" style="color: #0077b5;"></i>
+          <h4 class="info-side-text"> LinkedIn: Winck Negocios Imobiliarios Ltda</h4>
+        </div>
+        <div class="info-side-div flex-always margin center">
+          <h3 class="info-side-text">Ou nós mande uma mensagem!</h3>
+        </div>
+      </div>
+        <div class="hero form block itens-desc-full w50">
+            <p>Escreva para a gente. Coloque seus dados e detalhe o que quer dizer nos comentários, estamos esperando!</p>
+            <form action="{% url 'contato' %}" method="post">
+              {% csrf_token %}
+              {{ form.as_p}}
+              <div class="flex justify-content-center">
+                <button type="submit" class="btn btn-encomenda">
+                    <h5>Enviar</h5>
+                    </h3>
+                  </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
+</section>
+{%endblock%}

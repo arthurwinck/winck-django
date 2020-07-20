@@ -1,0 +1,83 @@
+{% extends 'admin/base.html'%}
+{% load static %}
+{% block extrastyle%}
+<style>
+    #header {
+        background: rgba(255,175,75,1);
+        background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,175,75,1)), color-stop(28%, rgba(255,175,75,1)), color-stop(77%, rgba(255,146,10,1)), color-stop(100%, rgba(255,146,10,1)));
+        background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: -o-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: -ms-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: linear-gradient(to right, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+    
+        color:whitesmoke;
+    }
+
+    #branding h1 {
+        color:whitesmoke;
+    }
+
+    .module h2, .module caption, .inline-group h2 ,div.breadcrumbs, .button:active {
+        background: rgba(255,175,75,1);
+        background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,175,75,1)), color-stop(28%, rgba(255,175,75,1)), color-stop(77%, rgba(255,146,10,1)), color-stop(100%, rgba(255,146,10,1)));
+        background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: -o-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: -ms-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: linear-gradient(to right, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+    
+    
+    }
+
+    a:link, a:visited a:hover {
+        color:#805C43;
+    }
+
+    .button.default, input[type=submit].default, .submit-row input.default {
+        background: #ff8100;
+    }
+
+    .button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #ff974d
+    }
+
+    input[type=submit].default:hover,.button:active, input[type=submit]:active, input[type=button]:active, .button:focus, input[type=submit]:focus, input[type=button]:focus, .button:hover, input[type=submit]:hover, input[type=button]:hover {
+        background: #ff5200;
+    }
+
+    .selector-chosen h2 {
+        background: rgba(255,175,75,1);
+        background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%) !important;
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,175,75,1)), color-stop(28%, rgba(255,175,75,1)), color-stop(77%, rgba(255,146,10,1)), color-stop(100%, rgba(255,146,10,1)));
+        background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: -o-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+        background: -ms-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 28%, rgba(255,146,10,1) 77%, rgba(255,146,10,1) 100%);
+    }
+
+    #changelist-filter li.selected a {
+        color:orange;
+    }
+
+    .addlink.a:hover {
+        background-color: orange;
+        color:white
+    }
+
+    a {
+        color:orangered;
+    }
+</style>
+{% endblock %}
+
+{% block title %} 
+Winck Imóveis Dashboard
+{% endblock %}
+
+{% block responsive %}
+<link rel="icon" type="image/x-icon" href="https://img.kenlo.io/VWRCUkQ2Tnp3d1BJRDBJVe1s0xgxS7daNJUEv7tewTj5teT1Ozqgzm1JNjAvUFRCJadQk2NyQ4sn9UZultlp41E0iI0WVb63pyib08LPv4bE8AO937X4npyd%2B%2BrBfez57sdvivasS1Wn7qA-HYJ7bB8iO7UiFES2BN3eZiYI%2BGLd9wDJSLRBDjANwAA0mxQdngO9VIKl8Vw5lnv9Ff7ErTTBFvjeJ3MaDeAdEscjrU1b9xD4.png">
+{% endblock %}
+
+{% block branding %}
+<h1><img style="width: 25px; padding-bottom: 5px;" src="{% static 'winck-logo-foda.png'%}" alt="logo-winck"> Winck Imóveis Dashboard</h1>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base_layout.html'%}
+{% block content %}
+<div class='background-blog'>
+<div class="enchimento"></div>
+<div class="banner-blog hero block banner">
+	<h2>Bem vindo ao nosso querido blog!</h2>
+	<p>Leia nossos posts sobre diversos assuntos: investimento, decoração e imóveis em geral!</p>
+	<div class="flex">
+		<div class="w70">
+			<form class=" search--blog" action="{% url  'blog' %}" method="GET">
+				<p></p>
+				<input class="w100 search--blog--input" type="text" name="search" id="searchPosts">
+				<button class="btn margin2x" type="submit"><h3>Procurar</h3></button>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+<section class="background">
+<div class="wrapper container block start">
+	<h1 class="margin2x">Lista de Posts</h1>
+		{% for posts in page_obj %}
+			<a class="a-placer" href="{% url 'details_blog' slug=posts.slug %}">
+			<div class="itens-desc-full  dale grid flex justify-content-center a-imovel margin">
+				<div class='flex-left blog-cell'>
+					<div class="flex justify-content-left thumb-placer">
+						<img class='thumb flexs' src="{{posts.thumb.url}}" alt="thumbnail">
+					</div>
+				<section class="block thumb-title start">
+					<h3>{{posts.title}}</h3>
+					<p>{{posts.desc}}</p>
+					<p>{{posts.user.get_full_name}}</p>
+					<p>{{posts.date}}</p>
+				</section>
+				</div>
+			</a>
+			</div>
+		{% endfor%}
+		<div class="pagination marginH flex-always justify-content-center">
+			<span class="step-links block">
+				{% if page_obj.has_other_pages %}
+					<ul class="pages">
+					{% if page_obj.has_previous %}
+						<li><a href="?page={{ page_obj.previous_page_number }}"><p><i class="gg-arrow-left-o"></i></p></a></li>
+					{% else %}
+						<li class="disable"><span><p><i class="gg-arrow-left-o"></i></p></span></li>
+					{% endif %}
+					{% for i in page_obj.paginator.page_range %}
+						{% if page_obj.number == i %}
+							<li class="active"><span><p class="dale">{{ i }}</p><span class="sr-only">(current)</span></span></li>
+						{% else %}
+							<li><a href="?page={{ i }}"><p>{{ i }}</p></a></li>
+						{% endif %}
+					{% endfor %}
+					{% if page_obj.has_next %}
+						<li><a href="?page={{ page_obj.next_page_number }}"><p><i class="gg-arrow-right-o"></i></p></a></li>
+					{% else %}
+						<li class="disable"><span><p><i class="gg-arrow-right-o"></i></p></span></li>	
+					{% endif %}
+					</ul>
+				{% endif %}
+			</span>
+		</div>
+<!-- 		<h3 class="dale e404">Me parece que não existem posts no blog nesse momento, talvez mais tarde? :(</h3>
+		<div class="flex-always justify-content-center"><i class="far fa-frown-open fa-5x"></i></div>		
+	 --></section>
+	</div>
+	<!-- <script>
+	$( function() {
+		$( "#searchPosts" ).autocomplete({
+		source: '{{ postsJson|safe }}',
+		minLength: 2
+		});
+	} );
+	</script> -->
+</body>
+</html>
+{% endblock%}

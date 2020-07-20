@@ -1,0 +1,77 @@
+ {% extends 'base_layout.html'%}
+{%block content%}
+{% load static %}
+<section class="banner-sobre banner hero">
+    <div class="enchimento-banner"></div>
+    <h2>O Sucesso é fruto do esforço de cada um de nós</h2>
+    <p>A Winck trabalha diariamente para atendê-lo da melhor maneira possível, facilitando sua jornada de compra de imóvel</p>
+  </section>
+  <div class=" block w100">
+    <div class="flex-always sobre-menu center">
+    <span class="box-c"><a href="#institucional" class="marginHA custom-underline underline-light"><h4>Missão & Valores</h4></a></span>
+    <span class="box-c"><a href="#equipe" class="marginHA custom-underline underline-light"><h4>Nossa Equipe</h4></a></span>    
+    <span class="box-c"><a href="" class="marginHA custom-underline underline-light"><h4>Nossos Parceiros</h4></a></span>
+  </div>
+  </div>
+  <section class="background">
+  <section class="hero container col block">
+    <div class="itens-full-desc itens-full block">
+    <section id="institucional" class="block margin2x sobre-border-alt paddingH anchor">
+      <div class="flex w100 margin2x sobre-card">
+        <div class="flex-always w50">
+        <div class="block box-e">
+          <div class=" flex-always start">
+            <h3 class="block custom-underline disable start ">Missão</h3>
+          </div>
+        <div>
+        <p>Melhorar a vida das pessoas, de forma sustentável, atuando como elo estratégico para conjugar interesses comuns entre os atores da comunidade..</p>  
+      </div>
+      </div>
+    </div>
+      <div class="flex-always w50">
+        <img class="marginH sobre-img not-mobile" style="width:40%; object-fit: contain;" src="{% static  'winck-missao.png'%}" alt="">
+      </div>
+    </div>
+        <div class="block margin2x sobre-card w100 box-e">
+          <div class=" flex-always start">
+            <h3 class="flex-always  custom-underline disable start">Valores</h3>
+          </div>
+          <div class="flex"> 
+          <div class="flex w50 marginH">
+          <div class="block sobre-li">
+        <li><b>Os clientes são os nossos principais acionistas:</b> a eles é dado pleno poder não só para demitir ou admitir, mas também para promover reestruturações e ajustes visando sustentabilidade e perenidade da organização. </li>
+        <li><b>Nossa equipe faz a diferença:</b> com característica multidisciplinar e foco constante no desenvolvimento, onde princípios e integridade não são virtudes a serem louvadas, mas condições básicas para se incorporar à organização.</li>
+        <li><b>Cultivamos</b> solidariedade, companheirismo, lealdade, respeito, desprendimento e alinhamento de propósitos.</li>
+        <li><b>Pessoas</b> capacitadas e focadas na missão da empresa serão sempre o nosso diferencial competitivo. </li>
+        <li><b>Resultado</b> econômico e estabilidade financeira serão alcançados como consequência da maestria com que o trabalho é desenvolvido, e não como fim em si.</li>
+        </div>  
+      </div>
+        <div class="flex w50 start marginH">
+          <div class="block  sobre-li">
+        <li><b>Valorizamos</b> um ambiente regido pela confiança mútua, onde todos são livres para fazer suas escolhas e traçar seu próprio caminho.</li>
+        <li><b>Agimos</b> como empreendedores e líderes, assumindo responsabilidades individuais, com visão no coletivo.</li>
+        <li><b>Valorizamos</b> o uso dos recursos disponíveis com critérios e de forma sustentável.</li>
+        <li><b>Respeitamos</b> o ser humano e focamos em relações duradouras, tipo ganha-ganha.</li>
+        <li><b>Incentivamos</b> espiritualidade e a filantropia.</li>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
+      <div class="flex w50 justify-content-center margin">
+      </div>
+    </div>
+    <section id="equipe" class="flex sobre-border-alt paddingH anchor">
+      <div class="w50 margin sobre-card marginH2xM">
+        <img class="sobre-img" src="{% static 'familia-winck.jpg'%}" alt="Nossa Equipe">
+      </div>
+      <div class="block w50 margin2x sobre-card box-e">
+        <h3 class="custom-underline disable">Nossa Equipe</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </section>
+    </div>
+  </section>
+  </section>
+
+  {%endblock%}
