@@ -35,7 +35,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'winckbot@gmail.com'
 EMAIL_HOST_PASSWORD = 'Robo+Winck=GG'
 EMAIL_USE_TLS = True
-ADMIN = [('Arthur', 'apwinck@gmail.com')]
+ADMINS = [('Arthur', 'apwinck@gmail.com')]
 
 
 # Application definition
