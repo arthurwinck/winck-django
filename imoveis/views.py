@@ -104,5 +104,8 @@ def imoveis_details(request,slug):
     else:
         msgDic ={'Nome': '', 'Email': '', 'Celular': '', 'Comentarios': '', 'Imovel': ''}
 
-    return render(request,'imoveis/imoveis_details.html',{'imovel':imovel,'images':images, 'form':form, 'msgDic': msgDic})
+    google_maps_secret_key = settings.GOOGLE_MAPS_SECRET_KEY
+
+    return render(request,'imoveis/imoveis_details.html',{'imovel':imovel,'images':images, 'form':form, 'msgDic': msgDic, 'google_maps_secret_key': google_maps_secret_key})
+
 
