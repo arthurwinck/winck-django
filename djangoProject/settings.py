@@ -22,10 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+(1*xja)vrqlo1um$z17xx3-8gb$6ce(%pp737)(m*n4v067&m'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ['DEBUG_VALUE']
 
 ALLOWED_HOSTS = []
 
@@ -34,8 +34,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 
 
-EMAIL_HOST_USER = 'winckbot@gmail.com'
-EMAIL_HOST_PASSWORD = 'Robo+Winck=GG'
+EMAIL_HOST_USER = os.environ['EMAIL_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
 EMAIL_USE_TLS = True
 ADMINS = [('Arthur', 'apwinck@gmail.com')]
 
@@ -160,7 +160,7 @@ CKEDITOR_BASE_PATH = "static/ckeditor/ckeditor"
 #google maps
 LOCATION_FIELD_PATH = STATIC_URL + 'location_field'
 
-GOOGLE_MAPS_SECRET_KEY = 'AIzaSyB2pzNmRALgf0qlHY8BBmv_P0cxhKO-u4E'
+GOOGLE_MAPS_SECRET_KEY = os.environ['GOOGLE_MAPS']
 
 LOCATION_FIELD = {
     'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
@@ -169,8 +169,8 @@ LOCATION_FIELD = {
 
 #s3 AWS STORAGE
 
-AWS_ACCESS_KEY_ID = 'AKIAUICQQJC5TXYMQAY5'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = "winck-django-files"
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
