@@ -22,10 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DJANGO_PRODUCTION_KEY']
+SECRET_KEY = '+(1*xja)vrqlo1um$z17xx3-8gb$6ce(%pp737)(m*n4v067&m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -34,8 +34,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 
 
-EMAIL_HOST_USER = os.environ['EMAIL_USER']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
+EMAIL_HOST_USER = 'winckbot@gmail.com'
+EMAIL_HOST_PASSWORD = 'Robo+Winck=GG'
 EMAIL_USE_TLS = True
 ADMINS = [('Arthur', 'apwinck@gmail.com')]
 
@@ -160,7 +160,7 @@ CKEDITOR_BASE_PATH = "static/ckeditor/ckeditor"
 #google maps
 LOCATION_FIELD_PATH = STATIC_URL + 'location_field'
 
-GOOGLE_MAPS_SECRET_KEY = os.environ['GOOGLE_MAPS']
+GOOGLE_MAPS_SECRET_KEY = 'AIzaSyB2pzNmRALgf0qlHY8BBmv_P0cxhKO-u4E'
 
 LOCATION_FIELD = {
     'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
