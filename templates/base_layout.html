@@ -2,23 +2,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-      <link href='https://css.gg/css' rel='stylesheet'>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
       <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="{% static 'stylesWinck.css'%}">
+      <link rel="stylesheet" href="{% static 'css/stylesWinck.css'%}">
       <link href="https://fonts.googleapis.com/css?family=Lato|Raleway&display=swap" rel="stylesheet">
-      <script src="{% static 'comportamento.js' %}"></script>
       <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script src="https://kit.fontawesome.com/3a55af5b0e.js" crossorigin="anonymous"></script>
-      <link rel="icon" type="image/x-icon" href="{% static 'winck-logo.png' %}">
+      <link rel="icon" type="image/x-icon" href="{% static 'images/winck-logo.png' %}">
       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
       <link rel="stylesheet" href="/resources/demos/style.css">
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <link href="{% static 'css/all.css' %}" rel="stylesheet">
       <title>Winck Negócios Imobiliários</title>
   </head>
   <body>
@@ -26,7 +18,7 @@
     <div class="block">
     <div class="block w100 margin">
       <div class="flex-always w100">
-        <img class="loader-logo block" src="{% static 'winck-logo-alt-compress.png' %}" alt="">
+        <img class="loader-logo block" src="{% static 'images/winck-logo-alt-compress.png' %}" alt="">
       </div>
     </div>
     <div class="loader">
@@ -39,7 +31,7 @@
   <section class="site-header">
     <header class="container-logo group">
       <h1 class="logo">
-        <a href="{% url 'index'%}"><img class="logo-principal" src="{% static 'Winck.png' %}" alt="Logo Winck"></a>
+        <a href="{% url 'index'%}"><img class="logo-principal" src="{% static 'images/Winck.png' %}" alt="Logo Winck"></a>
       </h1>
       <div id="myNav" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -93,7 +85,6 @@
       </nav>
     </header>
     </section>
-    <div style="height: 120px;"></div>
     <div class="deco-desc"></div>
             {% block content%}
             {% endblock %}
@@ -101,7 +92,7 @@
         <footer class="primary-footer container group">
           <section class="telefone-mobile flex">
           <div>
-            <h3><img class="icon-dropdown" src="{% static 'winck-logo-foda.png'%} ">Gostaria de Conversar?</h3>
+            <h3><img class="icon-dropdown" src="{% static 'images/winck-logo-foda.png'%} ">Gostaria de Conversar?</h3>
             <h4><i class="fab fa-whatsapp"></i>(54)99101-3403</h4>
           </div>
           </section>
@@ -111,19 +102,19 @@
             <div class="between"></div>
             <div class="flex margin2x  justify-content-center footer-desktop">
               <div class="flex justify-content-left">
-                <img class="logo-principal" src="{% static 'Winck-alt.png' %}" alt="winck-logo">
+                <img class="logo-principal" src="{% static 'images/Winck-alt.png' %}" alt="winck-logo">
               </div>
               <div class="flex p-4"></div>
               <div class="flex justify-content-center">
                 <div class="marginH2x">
-                  <h4><img class="icon-dropdown" src="{% static 'winck-logo-foda.png'%}"> Unidade Guia Lopes:</h4>
+                  <h4><img class="icon-dropdown" src="{% static 'images/winck-logo-foda.png'%}"> Unidade Guia Lopes:</h4>
                   <div class="spacing">
                     <p>Rua do Guia Lopes 773</p>
                     <p>Exposição, Caxias do Sul</p>
                   </div>
                 </div>
                 <div>
-                  <h4><img class="icon-dropdown" src="{% static 'winck-logo-foda.png'%}"> Unidade Júlio de Castilhos:</h4>
+                  <h4><img class="icon-dropdown" src="{% static 'images/winck-logo-foda.png'%}"> Unidade Júlio de Castilhos:</h4>
                   <div class="spacing">
                     <p>Avenida Júlio de Castilhos, 123</p>
                     <p>Exposição, Caxias do Sul</p>
@@ -150,11 +141,12 @@
             <p><a href="https://github.com/Winckdev">Winckdev</a></p></div>
             </div>
           </footer>
-          <script>
-            window.addEventListener("load", () => {
-              const loader = document.querySelector('.loader-background');
-              loader.classList.add("hidden");
-            })
-          </script>
+          <script src="{% static 'js/loader.js' %}"></script>
+          <script src="{% static 'js/comportamento.js' %}"></script>
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </body>
 </html>

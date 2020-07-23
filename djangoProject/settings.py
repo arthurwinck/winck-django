@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 DEBUG = (os.environ['DEBUG_VALUE'] == 'True')
 
-ALLOWED_HOSTS = ['winck-django.herokuapp.com']
+ALLOWED_HOSTS = ['winck-django.herokuapp.com','localhost:8000','localhost']
 
 #Mail Sending
 EMAIL_HOST = 'smtp.gmail.com'
@@ -68,8 +68,8 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -145,7 +145,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'), os.path.join(BASE_DIR, 'fonts')
+]
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -188,9 +190,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #SECURITY
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = (os.environ['CSRF_COOKIE_SECURE'] == 'True')
+SESSION_COOKIE_SECURE = (os.environ['SESSION_COOKIE_SECURE'] == 'True')
+SECURE_SSL_REDIRECT = (os.environ['SECURE_SSL_REDIRECT'] == 'True')
 
 #probable bug fix is commenting next line
 #django_heroku.settings(locals())
