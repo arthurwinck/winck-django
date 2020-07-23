@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 DEBUG = (os.environ['DEBUG_VALUE'] == 'True')
 
-ALLOWED_HOSTS = ['https://winck-django.herokuapp.com']
+ALLOWED_HOSTS = ['winck-django.herokuapp.com']
 
 #Mail Sending
 EMAIL_HOST = 'smtp.gmail.com'
