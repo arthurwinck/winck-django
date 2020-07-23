@@ -443,7 +443,7 @@ input {
 .loader-background {
 	width: 100%;
 	height: 100%;
-	z-index: 99;
+	z-index: 999999;
 	position: fixed;
 	background-color: rgba(247,154,54,1);
 	justify-content: center;
@@ -1779,6 +1779,7 @@ table.customTable thead {
 	min-height: 30px;
 	background: #FEEDE0;
 	text-indent: 20%;
+	padding-top: 20px;
 }
 
 .deco-desc {
