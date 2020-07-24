@@ -198,7 +198,7 @@ table {
 */
 
 body {
-	height: 150%;
+	height: 200%;
 	background: rgb(255, 166, 56);
 	color: rgb(90, 74, 45);
 	font-weight: 300;
@@ -321,6 +321,17 @@ a {
 	clear:both;
 	*zoom: 1;
 }
+
+.desenvolvimento{
+	background: red;
+
+}
+
+.desenvolvimento h4, a {
+	color: #fff;
+}
+
+
 
 /*
   ========================================
@@ -1049,7 +1060,7 @@ input {
   .overlay .closebtn {
 	position: absolute;
 	top: 20px;
-	right: 45px;
+	right: 12px;
 	font-size: 60px;
   }
 
