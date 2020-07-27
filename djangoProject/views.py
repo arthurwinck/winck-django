@@ -49,26 +49,30 @@ def contato(request):
     form = ContatoForm()
 
     if request.method == "POST":
-        contatoNome = request.POST["Nome"]
-        contatoEmail = request.POST["Email"]
-        contatoCelular = request.POST["Telefone"]
-        contatoComentarios = request.POST["Comentarios"]
-        
-        template_email = settings.BASE_DIR + "/templates/contato_email.html"
-        contatoDic ={'Nome': contatoNome, 'Email': contatoEmail, 'Celular': contatoCelular, 'Comentarios': contatoComentarios}
-        
-        mensagemEmail = render_to_string(template_email, { 'contatoDic': contatoDic, })
+        form = ContatoForm(request.POST or None)
 
-        send_mail(
-            f"{contatoNome} - Contato",
-            strip_tags(mensagemEmail), 
-            contatoEmail,
-            ['winckdeveloper@gmail.com'],
-            html_message=mensagemEmail,
-            fail_silently=False,
-        )
+        if form.is_valid():
+            contatoNome = form.cleaned_data.get('Nome')
+            contatoEmail = form.cleaned_data.get('Email')
+            contatoCelular = form.cleaned_data.get('Celular')
+            contatoComentarios = form.cleaned_data.get('Comentarios')
+            
+            template_email = settings.BASE_DIR + "/templates/contato_email.html"
+            contatoDic ={'Nome': contatoNome, 'Email': contatoEmail, 'Celular': contatoCelular, 'Comentarios': contatoComentarios}
+            
+            mensagemEmail = render_to_string(template_email, { 'contatoDic': contatoDic, })
 
-        #f"{contatoNome} entrou em contato e escreveu esta mensagem: {contatoComentarios}. Dados do prospect: Nome: {contatoNome}, Celular(Whatsapp): {contatoCelular}, Email: {contatoEmail} "
+            send_mail(
+                f"{contatoNome} - Contato",
+                strip_tags(mensagemEmail), 
+                contatoEmail,
+                ['winckdeveloper@gmail.com'],
+                html_message=mensagemEmail,
+                fail_silently=False,
+            )
+
+        else:
+            contatoDic ={'Nome': '', 'Email': '', 'Celular': '', 'Comentarios': ''}
 
     else:
         contatoDic ={'Nome': '', 'Email': '', 'Celular': '', 'Comentarios': ''}

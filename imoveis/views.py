@@ -8,7 +8,6 @@ from django.views.generic import CreateView
 from .models import Imoveis,ImoveisImage, TIPOS_CHOICES
 from .forms import ImoveisForm, SearchForm
 from djangoProject import settings
-from .filters import ImoveisFilter, ImoveisFilterAlt
 from django.db.models import Q
 
 def is_valid_queryparam(param):
@@ -80,27 +79,41 @@ def imoveis_details(request,slug):
     images = ImoveisImage.objects.filter(imovel=imovel)
     form = ImoveisForm()
 
-    if request.method == "POST": 
-        msgNome = request.POST['Nome']
-        msgEmail = request.POST['Email']
-        msgCelular = request.POST['Telefone']
-        msgComentarios = request.POST['Comentarios']
-        msgContato = request.POST['Contato']
-        template_email = settings.BASE_DIR + "/templates/imovel_email.html"
-        msgDic ={'Nome': msgNome, 'Email': msgEmail, 'Celular': msgCelular, 'Comentarios': msgComentarios, 'Contato': msgContato,'Imovel': imovel.nome}
+    if request.method == "POST":
 
-        mensagemEmail = render_to_string(template_email, { 'msgDic': msgDic, })
+        form = ImoveisForm(request.POST or None)
 
-        send_mail(
-            f"{msgNome} - {imovel.nome}",
-            strip_tags(mensagemEmail), 
-            msgEmail,
-            ['winckdeveloper@gmail.com'],
-            html_message=mensagemEmail,
-            fail_silently=False,
-        )
+        if form.is_valid():
+            msgNome = form.cleaned_data.get('Nome')
+            msgEmail = form.cleaned_data.get('Email')
+            msgCelular = form.cleaned_data.get('Celular')
+            msgComentarios = form.cleaned_data.get('Comentarios')
+            msgContato = form.cleaned_data.get('Contato')
 
-    
+            """ msgNome = request.POST['Nome']
+            msgEmail = request.POST['Email']
+            msgCelular = request.POST['Telefone']
+            msgComentarios = request.POST['Comentarios']
+            msgContato = request.POST['Contato'] """
+
+
+            template_email = settings.BASE_DIR + "/templates/imovel_email.html"
+            msgDic ={'Nome': msgNome, 'Email': msgEmail, 'Celular': msgCelular, 'Comentarios': msgComentarios, 'Contato': msgContato,'Imovel': imovel.nome}
+
+            mensagemEmail = render_to_string(template_email, { 'msgDic': msgDic, })
+
+            send_mail(
+                f"{msgNome} - {imovel.nome}",
+                strip_tags(mensagemEmail), 
+                msgEmail,
+                ['winckdeveloper@gmail.com'],
+                html_message=mensagemEmail,
+                fail_silently=False,
+            )
+
+        else:
+            msgDic ={'Nome': '', 'Email': '', 'Celular': '', 'Comentarios': '', 'Imovel': ''}
+
     else:
         msgDic ={'Nome': '', 'Email': '', 'Celular': '', 'Comentarios': '', 'Imovel': ''}
 

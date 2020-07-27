@@ -6,9 +6,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import validate_image_file_extension
 from django.utils.encoding import force_str
 from django.utils.translation import gettext as _
-from .models import Imoveis, ImoveisImage
 from django.forms.widgets import TextInput,NumberInput,Select
 from django.utils.safestring import mark_safe
+from .models import Imoveis, ImoveisImage
+from multiselectfield import MultiSelectField
 
 class UserFullnameChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
@@ -72,7 +73,7 @@ class ImoveisForm(forms.Form):
 
     Nome = forms.CharField(max_length=60,label=False,widget=forms.TextInput(attrs={'placeholder': 'Seu nome completo!'}))
     Email = forms.EmailField(max_length=60,label=False,widget=forms.TextInput(attrs={'placeholder': 'Email'}))
-    Telefone = forms.CharField(max_length=13,label=False,widget=forms.TextInput(attrs={'placeholder': 'Celular (Whatsapp)'}))
+    Celular = forms.CharField(max_length=13,label=False,widget=forms.TextInput(attrs={'placeholder': 'Celular (Whatsapp)'}))
     Comentarios = forms.CharField(max_length=250,label=False,widget=forms.Textarea(attrs={'placeholder': 'Comentários (Opcional)','rows':5,'cols':20,'style':'resize: none'}))
     Contato = forms.MultipleChoiceField(choices=CONTATO_OPTIONS,required=False,label='Como quer receber o nosso contato?',widget=forms.CheckboxSelectMultiple(attrs={'style':'display: inline-block; padding: 5px 5px 5px 5px;'}))
 

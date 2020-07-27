@@ -6,9 +6,17 @@
         <h2 style="text-indent: 5px;"> Winck Negócios Imobiliários</h2>
     </div>
     <div style="width: 100%; background-color: #FFF2DF; color:rgb(70, 70, 70); padding: 20px 0 20px 5px;">
-        <h4>{{msgDic.Nome }} Gostaria de saber mais sobre o {{ msgDic.Imovel }} e comentou:</h4>
-        <h4>{{msgDic.Comentarios}}</h4>
-        <h4>{{msgDic.Contato}}</h4>
+        <h3 style="margin: 5px 0;">{{msgDic.Nome }} Gostaria de saber mais sobre o {{ msgDic.Imovel }}</h3>
+        <div>
+            <h3>Comentários:</h3>
+            <h4>{{msgDic.Comentarios}}</h4>
+        </div>
+        <div>
+            <h3>O Contato seria por:</h3>
+            {% for contato in msgDic.Contato%}
+            <p>-{{contato}}</p>
+            {% endfor %}
+        </div>
         <div style="margin-top:40px; display:flex">
             <h3 style="color: #FFAF4B; font-weight: bold;">Nome:</h3> <h3 style=" margin-right: 20px;">{{msgDic.Nome }}</h3>
             <h3 style="color: #FFAF4B; font-weight: bold;">Email:</h3> <h3 style=" margin-right: 20px;">{{msgDic.Email}}</h3>
