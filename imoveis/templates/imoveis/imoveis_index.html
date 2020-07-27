@@ -37,7 +37,7 @@
 		<div class="between-alt"></div>
 		<section class="grid-imovel container">
 			{% if page_obj.paginator.page_range == 0 %}				
-				<h3 class="dale e404">Me parece que não existem posts no blog nesse momento, talvez mais tarde? :(</h3>
+				<h3 class="dale e404">Me parece que não existem imóveis cadastrados nesse momento, talvez mais tarde? :(</h3>
 				<div class="flex-always justify-content-center"><i class="far fa-frown-open fa-5x"></i></div>
 				{% else %}
 				{% for imoveis in page_obj %}
@@ -89,7 +89,6 @@
 				{% endif %}
 			</span>
 			<script>
-				//Talvez mudar o autocomplete para ignorar pontos? é possivel?
 				$( function() {
 					$( "#search" ).autocomplete({
 					source: '{{ imoveisJson|safe }}',

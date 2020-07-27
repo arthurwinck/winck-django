@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'imoveis',
     'blog',
+    'leads',
     'users',
     'location_field.apps.DefaultConfig',
     'django_filters',

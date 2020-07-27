@@ -6,9 +6,10 @@ from django.shortcuts import render
 from django.utils.html import strip_tags
 from django.views.generic import CreateView
 from .models import Imoveis,ImoveisImage, TIPOS_CHOICES
-from .forms import ImoveisForm, SearchForm
+from .forms import SearchForm
 from djangoProject import settings
 from django.db.models import Q
+from  leads.forms import LeadForm
 
 def is_valid_queryparam(param):
     return param != '' and param is not None
@@ -34,7 +35,7 @@ def imoveis_index(request):
 
     if 'Search' in request.GET:
         tipo = request.GET.get('Tipo')
-        search = request.GET.get('Search')
+        search = request.GET.get('search')
         quartos = request.GET.get('Quartos')
         suites = request.GET.get('Suites')
         banheiros = request.GET.get('Banheiros')
@@ -74,38 +75,32 @@ def imoveis_index(request):
     #renderizar a pagina html para o browser
     return render(request,"imoveis/imoveis_index.html",{'imoveis':imoveis, 'page_obj': page_obj, 'form': form, 'getDic': getDic})
 
+
 def imoveis_details(request,slug):
     imovel = Imoveis.objects.get(slug=slug)
     images = ImoveisImage.objects.filter(imovel=imovel)
-    form = ImoveisForm()
+    form = LeadForm()
 
     if request.method == "POST":
 
-        form = ImoveisForm(request.POST or None)
+        form = LeadForm(request.POST or None)
 
         if form.is_valid():
-            msgNome = form.cleaned_data.get('Nome')
-            msgEmail = form.cleaned_data.get('Email')
-            msgCelular = form.cleaned_data.get('Celular')
-            msgComentarios = form.cleaned_data.get('Comentarios')
-            msgContato = form.cleaned_data.get('Contato')
-
-            """ msgNome = request.POST['Nome']
-            msgEmail = request.POST['Email']
-            msgCelular = request.POST['Telefone']
-            msgComentarios = request.POST['Comentarios']
-            msgContato = request.POST['Contato'] """
-
+            leadNome = form.cleaned_data.get('Nome')
+            leadEmail = form.cleaned_data.get('Email')
+            leadCelular = form.cleaned_data.get('Celular')
+            leadContato = form.cleaned_data.get('Comentarios')
+            leadContato = form.cleaned_data.get('Contato')
 
             template_email = settings.BASE_DIR + "/templates/imovel_email.html"
-            msgDic ={'Nome': msgNome, 'Email': msgEmail, 'Celular': msgCelular, 'Comentarios': msgComentarios, 'Contato': msgContato,'Imovel': imovel.nome}
+            msgDic ={'Nome': leadNome, 'Email': leadEmail, 'Celular': leadCelular, 'Comentarios': leadContato, 'Contato': leadContato,'Imovel': imovel.nome}
 
             mensagemEmail = render_to_string(template_email, { 'msgDic': msgDic, })
 
             send_mail(
-                f"{msgNome} - {imovel.nome}",
+                f"{leadNome} - {imovel.nome}",
                 strip_tags(mensagemEmail), 
-                msgEmail,
+                leadEmail,
                 ['winckdeveloper@gmail.com'],
                 html_message=mensagemEmail,
                 fail_silently=False,
@@ -120,5 +115,7 @@ def imoveis_details(request,slug):
     google_maps_secret_key = settings.GOOGLE_MAPS_SECRET_KEY
 
     return render(request,'imoveis/imoveis_details.html',{'imovel':imovel,'images':images, 'form':form, 'msgDic': msgDic, 'google_maps_secret_key': google_maps_secret_key})
+
+
 
 

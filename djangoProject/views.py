@@ -7,7 +7,7 @@ from .forms import ContatoForm
 from django.core.validators import validate_email
 from . import settings
 from imoveis.models  import Imoveis
-from imoveis.views import imoveis_index
+from imoveis.views import imoveis_index, imoveis_details
 from django.db.models import Q
 from django.http import HttpResponse,request, JsonResponse
 from django.core.paginator import Paginator
