@@ -35,7 +35,7 @@ def imoveis_index(request):
 
     if 'Search' in request.GET:
         tipo = request.GET.get('Tipo')
-        search = request.GET.get('search')
+        search = request.GET.get('Search')
         quartos = request.GET.get('Quartos')
         suites = request.GET.get('Suites')
         banheiros = request.GET.get('Banheiros')
