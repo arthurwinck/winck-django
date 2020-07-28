@@ -86,14 +86,16 @@ def imoveis_details(request,slug):
         form = LeadForm(request.POST or None)
 
         if form.is_valid():
-            leadNome = form.cleaned_data.get('Nome')
-            leadEmail = form.cleaned_data.get('Email')
-            leadCelular = form.cleaned_data.get('Celular')
-            leadContato = form.cleaned_data.get('Comentarios')
-            leadContato = form.cleaned_data.get('Contato')
+            form.save()
+
+            leadNome = form.cleaned_data.get('nome')
+            leadEmail = form.cleaned_data.get('email')
+            leadCelular = form.cleaned_data.get('celular')
+            leadComentarios = form.cleaned_data.get('comentarios')
+            leadContato = form.cleaned_data.get('contato')
 
             template_email = settings.BASE_DIR + "/templates/imovel_email.html"
-            msgDic ={'Nome': leadNome, 'Email': leadEmail, 'Celular': leadCelular, 'Comentarios': leadContato, 'Contato': leadContato,'Imovel': imovel.nome}
+            msgDic ={'Nome': leadNome, 'Email': leadEmail, 'Celular': leadCelular, 'Comentarios': leadContato, 'Contato': leadComentarios,'Imovel': imovel.nome}
 
             mensagemEmail = render_to_string(template_email, { 'msgDic': msgDic, })
 

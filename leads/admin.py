@@ -5,7 +5,8 @@ from .forms import LeadForm
 
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
-    list_display = ('nome','email','celular')
+    list_display = ('nome','email','celular','id')
 
     class Meta:
         model = Lead
+        

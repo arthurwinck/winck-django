@@ -8,10 +8,18 @@ CONTATO_OPTIONS = (
     ('Email',mark_safe('<div class="contact-li"><i class="far fa-envelope  fa-2x" style="color:#FF7900;"></i><p>Email</p></div>'))
 )
 
+TIPO_OPTIONS = (
+    ('Imóvel','Imóvel'),
+    ('Contato','Contato')
+)
+
 class Lead(models.Model):
     nome = models.CharField('Nome',max_length=60)
     email = models.CharField('Email',max_length=60)
     celular = models.CharField('Celular',max_length=13)
     comentarios = models.CharField('Comentários',max_length=200)
     contato = MultiSelectField(default='',choices=CONTATO_OPTIONS)
+
+    def __str__(self):
+        return self.nome
 
