@@ -35,33 +35,36 @@
 	<div class="background">
 	<section class="background background-imovel">
 		<div class="between-alt"></div>
-		<section class="grid-imovel container">
-			{% if page_obj.paginator.page_range == 0 %}				
-				<h3 class="dale e404">Me parece que não existem imóveis cadastrados nesse momento, talvez mais tarde? :(</h3>
-				<div class="flex-always justify-content-center"><i class="far fa-frown-open fa-5x"></i></div>
-				{% else %}
-				{% for imoveis in page_obj %}
-				<a class="" href="{% url 'details_imoveis' slug=imoveis.slug %}">
-					<div class="cell-imovel a-imovel">
-						<section class="">
-							<ul class=cell-list>
-							<li class="li-100"><div class='img-imovel' style="background-image: url({{imoveis.thumb.url}})"></li>
-							<section class="flex-always-left">
-								<div class="w70A">
-									<li><h5>{{imoveis.nome}}</h5></li>
-									<li><p>{{imoveis.tipo}}</p></li>
-									<li><p>{{imoveis.cidade}} - {{imoveis.bairro}}</p></li>
-								</div>
-								<div class="w30A">
-									<li><small><i class="fas fa-bed"></i>: {{imoveis.quartos}}</small></li>
-									<li><small><i class="fas fa-shower"></i>: {{imoveis.banheiros}}</small></li>
-									<li><small><i class="fas fa-car"></i>: {{imoveis.vagas}}</small></li>
-								</div>
-							</section>
-							</ul>
-					</div>
-					</a>
-				{% endfor%}
+		{% if page_obj|length < 1  %}				
+		<div class="margin5x center w100">
+			<h2 class="dale e404 center margin">Nenhum resultado foi encontrado baseado em sua busca, que tal tentar denovo?</h2>
+			<i class="fas fa-home fa-5x"></i>
+			<h3><a href="{% url %"></a></h3>
+		</div>
+		{% else %}
+			<section class="grid-imovel container">
+					{% for imoveis in page_obj %}
+					<a class="" href="{% url 'details_imoveis' slug=imoveis.slug %}">
+						<div class="cell-imovel a-imovel">
+							<section class="">
+								<ul class=cell-list>
+								<li class="li-100"><div class='img-imovel' style="background-image: url({{imoveis.thumb.url}})"></li>
+								<section class="flex-always-left">
+									<div class="w70A">
+										<li><h5>{{imoveis.nome}}</h5></li>
+										<li><p>{{imoveis.tipo}}</p></li>
+										<li><p>{{imoveis.cidade}} - {{imoveis.bairro}}</p></li>
+									</div>
+									<div class="w30A">
+										<li><small><i class="fas fa-bed"></i>: {{imoveis.quartos}}</small></li>
+										<li><small><i class="fas fa-shower"></i>: {{imoveis.banheiros}}</small></li>
+										<li><small><i class="fas fa-car"></i>: {{imoveis.vagas}}</small></li>
+									</div>
+								</section>
+								</ul>
+						</div>
+						</a>
+					{% endfor%}
 				{% endif %}		
 		</section>
 		<div class="pagination marginH flex-always justify-content-center">

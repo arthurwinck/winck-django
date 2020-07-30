@@ -59,7 +59,7 @@
         <a href="{% url 'contato' %}">Contato</a>
         <a href="#secoes"><h4 class="hero" style="color:rgba(250, 250, 250, 0.342);" onclick="closeNav()">Encomende seu imóvel, Acessoria à Construtoras e Serviços Caixa</h4></a>
         <div class="flex-always">
-          <a href="mailto:winck@winckimoveis.com.br?subject=Tenho%20interesse,%20como%20posso%20começar?" target="_blank" style="margin-left:0px; color: #FF7900; "></p><i class="far fa-envelope fa-2x"></p></i></a>
+          <a href="mailto:winck@winckimoveis.com.br?subject=Tenho%20interesse,%20como%20posso%20começar?" target="_blank" style="margin-left:0px; color: #FF7900; "></p><i class="fas fa-envelope-open-text fa-2x"></i></a>
           <a href="http://facebook.com/Winck.Imoveis/" target="_blank" ></p><i class="fab fa-facebook-square fa-2x" ></p></i></a>
           <a href="https://web.whatsapp.com/send?phone=5554991013403" target=_blank><p class="margin2x"><i class="fab fa-whatsapp fa-2x"></i></p></a>
         </div>
@@ -84,7 +84,7 @@
             <a class="custom-underline" href="{% url 'contato' %}">Contato</a>
           </div>
         </div>
-        <a href="mailto:winck@winckimoveis.com.br?subject=Tenho%20interesse,%20como%20posso%20começar?" target="_blank" style="margin-left:20px;"><i class="far fa-envelope fa-2x"></i></a>
+        <a href="mailto:winck@winckimoveis.com.br?subject=Tenho%20interesse,%20como%20posso%20começar?" target="_blank" style="margin-left:20px;"><i class="fas fa-envelope-open-text fa-2x" alt="Email"></i></a>
         <a href="http://facebook.com/Winck.Imoveis/" target="_blank" ><i class="fab fa-facebook-square fa-2x" ></i>
         <a href="https://web.whatsapp.com/send?phone=5554991013403" target=_blank><i class="fab fa-whatsapp fa-2x"></i></a>
         <div class="dropdown">
@@ -101,6 +101,7 @@
       </nav>
     </header>
     </section>
+    <div class="whats-btn"><a href="https://web.whatsapp.com/send?phone=5554991013403"><i class="fab fa-whatsapp fa-3x"></i></a></div>
     <div class="deco-desc"></div>
     <!-- <div class="desenvolvimento padding center block justify-content-center">
       <h4 class="margin">Este website está em desenvolvimento e portanto não representa qualquer produto oficial da Winck Negócios Imobiliários.</h4>
@@ -109,32 +110,81 @@
             {% block content%}
             {% endblock %}
         </div>
-        <footer class="primary-footer container group">
-          <section class="telefone-mobile flex">
-          <div>
-            <h3><img class="icon-dropdown" src="{% static 'images/winck-logo-foda.png'%} ">Gostaria de Conversar?</h3>
-            <h4><i class="fab fa-whatsapp"></i>(54)99101-3403</h4>
-          </div>
+        <footer class="primary-footer">
+          <div class="group">
+          <section class="telefone-mobile block">
+            <h3>Contate-nos!</h3>
+            <h4><i class="fas fa-phone-alt phone phone-header" style="color: rgb(90, 74, 45);"></i> Telefone: (54)99101-3403</h4>
+            <h5 class="" >ou também:</h5>
+            <div class="flex-always">
+              <div class="flex start margin footer-links">
+                <a href="https://web.whatsapp.com/send?phone=5554991013403"><i class="fab fa-whatsapp fa-2x" style="color: rgb(90, 74, 45);"></i></a>
+              </div>
+              <div class="flex-always start margin footer-links">
+                <a href="mailto:winck@winckimoveis.com.br?subject=Olá,%20gostaria%20de%20contatar%20vocês"><i class="fas fa-envelope-open-text fa-2x"></i></a>
+              </div>
+              <div class="flex-always start margin footer-links">
+                <a href="http://facebook.com/Winck.Imoveis/"><i class="fab fa-facebook-f fa-2x"></i></a>
+              </div>
+              <div class="flex-always start margin footer-links">
+                <a href="https://www.instagram.com/winckimoveis/"><i class="fab fa-instagram fa-2x"></i></a>
+              </div>
+              <div class="flex-always start margin footer-links">
+                <a href="https://www.linkedin.com/company/winck-assessoria-e-neg-cios-imobili-rios/"><i class="fab fa-linkedin-in fa-2x "></i></a>
+              </div>
+            </div>
           </section>
-            <div class=" group enchimento"></div>
-            <p class="nav right"><a  href="{% url 'admin:index' %}" class="btn btn-imoveis">Acesso Restrito</a></p>
             <span class="menu-btn menu-btn-alt" onclick="openNav()"><div></div><div></div><div></div></span>
             <div class="between"></div>
-            <div class="flex margin2x  justify-content-center footer-desktop">
-              <div class="flex justify-content-left">
-                <img class="logo-principal" src="{% static 'images/Winck-alt.png' %}" alt="winck-logo">
+            <div class="flex margin2x  justify-content-center footer-desktop w100">
+              <div class="block text-nav footer-text marginH6x">
+                <img class="logo-principal" src="{% static 'images/winck-logo-branco.png' %}" alt="Winck Logo">
+                <p class="margin">Nossa missão é melhorar a vida das pessoas, de forma sustentável, atuando como elo estratégico para conjugar interesses comuns entre os atores da comunidade.</p>
               </div>
-              <div class="flex p-4"></div>
-              <div class="flex justify-content-center">
-                <div class="marginH2x">
-                  <h4><img class="icon-dropdown" src="{% static 'images/winck-logo-foda.png'%}"> Unidade Guia Lopes:</h4>
+              <div class="footer-deco"></div>
+              <div class="block text-nav marginH6x">
+                <div>
+                  <h4>Contate-nos</h4>
+                </div>
+                <div class="flex">
+                <div class="flex start margin footer-links">
+                  <a href="https://web.whatsapp.com/send?phone=5554991013403"><i class="fab fa-whatsapp fa-2x"></i></a>
+                </div>
+                <div class="flex start margin footer-links">
+                  <a href="mailto:winck@winckimoveis.com.br?subject=Olá,%20gostaria%20de%20contatar%20vocês"><i class="fas fa-envelope-open-text fa-2x"></i></a>
+                </div>
+                <div class="flex start margin footer-links">
+                  <a href="http://facebook.com/Winck.Imoveis/"><i class="fab fa-facebook-f fa-2x"></i></a>
+                </div>
+                <div class="flex start margin footer-links">
+                  <a href="https://www.instagram.com/winckimoveis/"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+                <div class="flex start margin footer-links">
+                  <a href="https://www.linkedin.com/company/winck-assessoria-e-neg-cios-imobili-rios/"><i class="fab fa-linkedin-in fa-2x "></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-deco"></div>
+              <div class="text-nav flex block start marginH5x text-nav-alt">
+              <h4>Links rápidos</h4>
+              <p><a href="{% url 'imoveis'%}">Imóveis</a></p>
+              <p><a href="{% url 'sobre' %}">Sobre</a></p>
+              <p><a href="{% url 'blog'%}">Blog</a></p>
+              <p><a href="{% url 'contato' %}">Contato</a></p>
+              <p><a href="{% url 'acessoria' %}">Acessoria</a></p>
+              <p><a href="{% url 'encomenda' %}">Encomenda</a></p>
+              <p><a href="{% url 'caixa' %}">Serviços Caixa</a></p>
+            </div>
+              <div class="footer-deco"></div>
+              <div class="block justify-content-center text-nav-alt marginH5x"> 
+                  <h4>Localização</h4>
+                  <h5><img class="icon-dropdown" src="{% static 'images/winck-logo-foda.png'%}"> Unidade Guia Lopes:</h5>
                   <div class="spacing">
                     <p>Rua do Guia Lopes 773</p>
                     <p>Exposição, Caxias do Sul</p>
-                  </div>
                 </div>
-                <div>
-                  <h4><img class="icon-dropdown" src="{% static 'images/winck-logo-foda.png'%}"> Unidade Júlio de Castilhos:</h4>
+                <div class="margin">
+                  <h5><img class="icon-dropdown" src="{% static 'images/winck-logo-foda.png'%}"> Unidade Júlio de Castilhos:</h5>
                   <div class="spacing">
                     <p>Avenida Júlio de Castilhos, 123</p>
                     <p>Exposição, Caxias do Sul</p>
@@ -146,20 +196,12 @@
             <div class="signature">
             <div class="contatos">
             </div>
-            <nav class="footer-nav nav justify-content-center">
-              <div class="text-nav flex">
-              <a href="{% url 'imoveis'%}"><p>Imóveis</p></a>
-              <a href="{% url 'sobre' %}"><p>Sobre</p></a>
-              <a href="{% url 'blog'%}"><p>Blog</p></a>
-              <a href="{% url 'contato' %}"><p>Contato</p></a>
-              <a href="{% url 'acessoria' %}"><p>Acessoria</p></a>
-              <a href="{% url 'encomenda' %}"><p>Encomenda</p></a>
-              <a href="{% url 'caixa' %}"><p>Serviços Caixa</p></a>
-              </div>
-            </nav>
+            <div class=" group enchimento"></div>
+            <p class="nav center"><a  href="{% url 'admin:index' %}" class="btn btn-imoveis">Acesso Restrito</a></p>
             <p>Winck Negócios Imobiliários Todos os direitos reservados 2020</p>
             <p><a href="https://github.com/Winckdev">Winckdev</a></p></div>
             </div>
+          </div>
           </footer>
     </body>
 </html>

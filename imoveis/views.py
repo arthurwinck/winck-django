@@ -22,12 +22,14 @@ def imoveis_index(request):
 
     if 'term' in request.GET:
         term = request.GET.get('term')
-        query = Imoveis.objects.filter(Q(nome__icontains=term) | Q(endereco__icontains=term))
+        query = Imoveis.objects.filter(Q(nome__icontains=term) | Q(bairro__icontains=term))
 
         imoveisList = []
         for imovel in query:
-            imoveisList.append(imovel.nome)
-            imoveisList.append(imovel.endereco)
+            if f'{imovel.bairro} - Bairro' not in imoveisList:
+                imoveisList.append(f'{imovel.bairro} - Bairro')
+
+            imoveisList.append(f'{imovel.nome} - Imóvel')
 
         imoveisJson = JsonResponse(imoveisList, safe=False)
 
