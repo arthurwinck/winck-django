@@ -3,13 +3,15 @@
 {% block content %}
 </div>
     <div class="main banner">
-      <section class="hero container block">
+      <section class="hero container flex-always center Hcenter">
+        <div class="main-search">
         <h2>O Relacionamento como parte do Sucesso.</h2>
         <p>Dedicados desde 2012 para firmar relações entre construtoras e compradores, a Winck se orgulha de ser uma parceira do Caixa Aqui.</p>
           <form class="form-imovel margin5x" action="{% url 'imoveis' %}" method="GET">
               <input name="Search" id="search" class="search--imovel " type="text" placeholder="Coloque o nome de um imóvel ou um endereço!">
               <button class="btn margin2x" type="submit"><h3>Ver Imóveis</h3></button>
-					</form>	
+          </form>
+        </div>	
       </section>
     </div>
     </section>
