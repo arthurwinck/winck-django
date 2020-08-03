@@ -97,7 +97,7 @@ def imoveis_details(request,slug):
             leadContato = form.cleaned_data.get('contato')
 
             template_email = settings.BASE_DIR + "/templates/imovel_email.html"
-            msgDic ={'Nome': leadNome, 'Email': leadEmail, 'Celular': leadCelular, 'Comentarios': leadContato, 'Contato': leadComentarios,'Imovel': imovel.nome}
+            msgDic ={'Nome': leadNome, 'Email': leadEmail, 'Celular': leadCelular, 'Comentarios': leadComentarios, 'Contato': leadContato,'Imovel': imovel.nome}
 
             mensagemEmail = render_to_string(template_email, { 'msgDic': msgDic, })
 
