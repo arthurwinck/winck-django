@@ -37,6 +37,7 @@ class ImoveisAdminForm(forms.ModelForm):
             "desc",
             "itens",
             "quartos",
+            "suites",
             "banheiros",
             "vagas",
             "thumb",

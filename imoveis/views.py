@@ -117,8 +117,15 @@ def imoveis_details(request,slug):
         msgDic ={'Nome': '', 'Email': '', 'Celular': '', 'Comentarios': '', 'Imovel': ''}
 
     google_maps_secret_key = settings.GOOGLE_MAPS_SECRET_KEY
+    
+    
+    carouselList = []
 
-    return render(request,'imoveis/imoveis_details.html',{'imovel':imovel,'images':images, 'form':form, 'msgDic': msgDic, 'google_maps_secret_key': google_maps_secret_key})
+    for i in range(1,len(images)):
+        carouselList.append(f'{i}')
+        i += 1
+
+    return render(request,'imoveis/imoveis_details.html',{'imovel':imovel,'images':images, 'carouselList': carouselList, 'form':form, 'msgDic': msgDic, 'google_maps_secret_key': google_maps_secret_key})
 
 
 

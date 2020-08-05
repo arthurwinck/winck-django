@@ -1,6 +1,7 @@
 {% extends 'base_layout.html'%}
 {% block content %}
 {% load static %}
+{% load index %}
 
 <section class="background background-desc">
     <section class="titulo-desc">
@@ -11,8 +12,14 @@
         <p><i class="fas fa-map-marker-alt"></i> {{imovel.endereco}}</p>
       </section>
           <div id="carouselExampleIndicators" class="carousel slide carousel-panel" data-ride="carousel">
-            <ol class="carousel-indicators">
-            </ol>
+            <div class="carousel-background">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"><img class="d-block pic-detail-thumb" src="{{images.0.image.url}}" alt="First slide"></li>
+                {% for num in carouselList %}
+                  <li data-target="#carouselExampleIndicators" data-slide-to="{{num}}"><img class="d-block pic-detail-thumb" src="{{images|index:num}}" alt=""></li>
+                {% endfor %}
+              </ol>
+            </div>
             <div class="carousel-inner carousel-panel">
               <div class="carousel-item active">
                 <img class="d-block pic-detail" src="{{images.0.image.url}}" alt="First slide">
@@ -32,6 +39,7 @@
             </a>
           </div>
         </div>
+        <div class="w100 background-thumb"></div>
             <div class="itens-desc-full-tr w70 info-panel not-desktop itens-desc-preco" style="overflow: hidden">
               <section class="padding block block-contact start not-desktop">
                 <div class="d-flex marginH2x margin">
