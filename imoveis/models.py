@@ -54,7 +54,7 @@ class Imoveis(models.Model):
     bairro = models.CharField(max_length=40,default='',blank=True)
     cidade = models.CharField(max_length=40,default='',blank=True)
     preco = models.CharField('Preço',max_length=12,default='0')
-    desc =  RichTextUploadingField('Descrição',max_length=200)
+    desc =  RichTextUploadingField('Descrição',max_length=600)
     date = models.DateTimeField(auto_now_add=True)
     itens = MultiSelectField(choices=ITENS_CHOICES)
     quartos = models.IntegerField(default=0)
@@ -198,23 +198,25 @@ def getEnderecoFields(sender, instance, **kwargs):
 
     elif count == 1:
         bairroCidade = listEndereco[0]
+        listBairroCidade = bairroCidade.split(',')
 
-        if ',' in bairroCidade:
-            listBairroCidade = bairroCidade.split(',')
+        if bairroCidade.count(',') > 1:
+            rua = listBairroCidade[0].strip()
+            num = listBairroCidade[1].strip()
+            cidade = listBairroCidade[2].strip()
+
+
+        elif ',' in bairroCidade:
             bairro = listBairroCidade[0].strip()
             cidade = listBairroCidade[1].strip()
 
-    if rua !=  '':
-        instance.rua = rua
-
-    if bairro != '':
-        instance.bairro = bairro
-
-    if cidade != '':
-        instance.cidade = cidade
-
-    if num != '':
+    instance.rua = rua
+    instance.bairro = bairro
+    instance.cidade = cidade
+    
+    if num == '':
+        instance.num = 0
+    else:
         instance.num = num
-
 
 pre_save.connect(getEnderecoFields, sender=Imoveis)

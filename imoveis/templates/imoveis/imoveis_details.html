@@ -8,18 +8,12 @@
     {% if msgDic.Nome != '' %}
     <h4 class="padding success-contato" ">Muito Obrigado {{msgDic.Nome}}, entraremos em contato em breve!</h4>
     {% endif %}
+      <div class="titulo-desc-text">
         <h2>{{imovel.nome}}</h2>
         <p><i class="fas fa-map-marker-alt"></i> {{imovel.endereco}}</p>
+      </div>
       </section>
           <div id="carouselExampleIndicators" class="carousel slide carousel-panel" data-ride="carousel">
-            <div class="carousel-background">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"><img class="d-block pic-detail-thumb" src="{{images.0.image.url}}" alt="First slide"></li>
-                {% for num in carouselList %}
-                  <li data-target="#carouselExampleIndicators" data-slide-to="{{num}}"><img class="d-block pic-detail-thumb" src="{{images|index:num}}" alt=""></li>
-                {% endfor %}
-              </ol>
-            </div>
             <div class="carousel-inner carousel-panel">
               <div class="carousel-item active">
                 <img class="d-block pic-detail" src="{{images.0.image.url}}" alt="First slide">
@@ -37,6 +31,14 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
+          </div>
+          <div class="carousel-background">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"><img class="d-block pic-detail-thumb" src="{{images.0.image.url}}" alt="First slide"></li>
+              {% for num in carouselList %}
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{num}}"><img class="d-block pic-detail-thumb" src="{{images|index:num}}" alt=""></li>
+              {% endfor %}
+            </ol>
           </div>
         </div>
         <div class="w100 background-thumb"></div>
@@ -58,6 +60,7 @@
                 </div>
               </section>
             </div>
+            <section class="info-imoveis">
             <div class="block right w28">
               <div class='contact-panel justify-content-center padding'>
                 <h2 class="padding">Entre em Contato!</h2>
@@ -128,6 +131,7 @@
                   </iframe></div>
                   </div>
               </div>
+            </section>
             <div class="group"></div>
           </div>
         </div>

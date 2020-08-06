@@ -158,13 +158,14 @@ body {
 	border-top: 0;
 	border-bottom: 0;
 	margin-left: 0;
-	margin-right: 0;	
+	margin-right: 0;
 }
 
 .carousel-indicators {
 	margin-left: 0;
 	margin-right: 0;
 }
+
 
 /* .carousel-background {
 	background: #7D746E;
@@ -475,13 +476,13 @@ input {
 
 .pic-detail {
 	max-height: 500px;
-	width: 70%;
+	width: 100%;
   	object-fit: contain;
 }
 
 .pic-detail-thumb {
 	height: 60px;
-	width: 100%;
+	width:  100%;
   	object-fit: cover;
 }
 
@@ -503,6 +504,8 @@ input {
 }
 
 .loader-logo {
+	border-bottom-left-radius: 2.5px;
+	border-bottom-right-radius: 2.5px;
 	width: 50px;
 	animation: bounce 0.6 infinite alternate;
 }
@@ -643,8 +646,8 @@ input {
 	border-radius: 40%;
 	width: 60px;
 	height: 60px;
-	top: 860px;
-	right: 20px;
+	top: 90%;
+	right: 1%;
 	transition: box-shadow 0.3s ease-in-out;
 	z-index: 99;
 }
@@ -755,6 +758,10 @@ input {
 
 .fa-whatsapp:hover {
 	color: #74b189;
+}
+
+.fa-envelope-open-text:hover {
+	color: #ffc271;
 }
 
 .topo {
@@ -1495,6 +1502,7 @@ a.disable {
 	height: 250px;
 	width: 320px;
 	border-radius: 10px;
+	object-fit: cover;
 }
 
 .col h2 {
@@ -1929,10 +1937,18 @@ table.customTable thead {
 
 
 .titulo-desc {
-	min-height: 30px;
-	background: #FEEDE0;
-	text-indent: 20%;
+	min-height: 100px;
+	background: #f7964c;
 	padding-top: 20px;
+}
+
+.titulo-desc-text {
+	margin-left: 20%;
+	color: rgb(255, 232, 219);
+}
+
+.titulo-desc-text h2  {
+	color: rgb(255, 232, 219);
 }
 
 .deco-desc {
@@ -2640,8 +2656,8 @@ i {
 		font-size: 30px;
 	}
 
-	.titulo-desc {
-		text-indent: 5%;
+	.titulo-desc-text {
+		margin-left: 5%;
 	}
 
 	.image-desc-alt {
@@ -2766,6 +2782,10 @@ i {
   .info-panel {
 	height: 100%;
 	margin: 0 0 0 0;
+  }
+
+  .info-imoveis {
+	display:block;
   }
 
   .margin5x {

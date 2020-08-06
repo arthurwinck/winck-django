@@ -21,7 +21,8 @@ class ImoveisImageInline(admin.StackedInline):
 class ImoveisAdmin(admin.ModelAdmin):
     form = ImoveisAdminForm
     inlines = [ImoveisImageInline]
-    list_display = ('nome','id','date','tipo','Capa',)
+    list_display = ('Capa','nome','id','date','tipo','slug',)
+    list_display_links = ('Capa','nome',)
     list_filter = ('date','tipo',)
     exclude = ('slug',)
     readonly_fields =('Capa',)
